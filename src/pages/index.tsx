@@ -64,6 +64,42 @@ const Index: React.FC<PageProps<Props>> = ({ data }) => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
+        {/* <!-- Primary Meta Tags --> */}
+        <title>Meta Tags — Preview, Edit and Generate</title>
+        <meta name="title" content="NOMOKO Challenge" />
+        <meta name="description" content="NOMOKO Property Locator" />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://zealous-ptolemy-a69c8c.netlify.app/"
+        />
+        <meta property="og:title" content="NOMOKO Challenge" />
+        <meta
+          property="og:description"
+          content="NOMOKO Map Challenge with Gatsby, React, SCSS and more!"
+        />
+        <meta
+          property="og:image"
+          content="https://zealous-ptolemy-a69c8c.netlify.app/favicon-32x32.png"
+        />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content="https://zealous-ptolemy-a69c8c.netlify.app/"
+        />
+        <meta property="twitter:title" content="NOMOKO Challenge" />
+        <meta
+          property="twitter:description"
+          content="NOMOKO Map Challenge with Gatsby, React, SCSS and more!"
+        />
+        <meta
+          property="twitter:image"
+          content="https://zealous-ptolemy-a69c8c.netlify.app/favicon-32x32.png"
+        />
         <title>NOMOKO Challenge</title>
       </Helmet>
       <main>
