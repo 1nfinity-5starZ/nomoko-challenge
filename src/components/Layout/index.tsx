@@ -1,6 +1,6 @@
 import React from "react";
-import LocationsProvider from "src/providers/LocationsProvider";
-import LangProvider from "src/providers/LangProvider";
+import LocationsProvider from "../../providers/LocationsProvider";
+import LangProvider from "../../providers/LangProvider";
 import "./styles.scss";
 
 const Layout: React.FC = ({ children }) => {

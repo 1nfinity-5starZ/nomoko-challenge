@@ -49,32 +49,40 @@ const Filters: React.FC = () => {
     <form
       className={`
         ${styles.container} 
-        ${state.activeLocation ? styles.shrinkContainer : ""} 
+        ${state.activeLocations.length > 0 ? styles.shrinkContainer : ""} 
         ${showFilters ? styles.open : ""}
       `}
       onSubmit={handleSubmit(onSubmit)}
+      data-testid="form"
     >
       <div
         className={styles.row}
         style={showFilters ? {} : { display: "none" }}
       >
         <div className={styles.formElement}>
-          <label htmlFor="type">Art des Gebäudes</label>
-          <select
-            name="type"
-            id="id"
-            placeholder="Select"
-            data-testid="type"
-            ref={register}
-          >
+          <label htmlFor="type">
+            <FormattedMessage
+              id="buildingType"
+              defaultMessage="Building Type"
+            />
+          </label>
+          <select name="type" id="id" placeholder="Select" ref={register}>
             <option value="">Alles</option>
             {getTypeOptions()}
           </select>
         </div>
 
         <div className={styles.formElement}>
-          <label htmlFor="parking">Parkplätze</label>
-          <input type="checkbox" name="parking" id="parking" ref={register} />
+          <label htmlFor="parking">
+            <FormattedMessage id="parking" defaultMessage="Parking" />
+          </label>
+          <input
+            type="checkbox"
+            name="parking"
+            id="parking"
+            data-testid="parking"
+            ref={register}
+          />
         </div>
 
         <div className={styles.formElement}>

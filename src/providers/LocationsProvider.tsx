@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useReducer } from "react";
+import produce from "immer";
 
 type IType =
   | "Residential"
@@ -30,13 +31,15 @@ export type FilterKey = keyof IFilter;
 interface IState {
   filters: IFilter;
   locations: ILocation[];
-  activeLocation?: string;
+  activeLocations: string[];
 }
 
 export enum ActionType {
   SET_FILTERS = "SET_FILTERS",
   SET_LOCATIONS = "SET_LOCATIONS",
   SET_ACTIVE_LOCATION = "SET_ACTIVE_LOCATION",
+  REMOVE_ACTIVE_LOCATION = "REMOVE_ACTIVE_LOCATION",
+  CLEAR_ACTIVE_LOCATION = "CLEAR_ACTIVE_LOCATION",
 }
 
 type Action =
@@ -50,35 +53,45 @@ type Action =
     }
   | {
       type: ActionType.SET_ACTIVE_LOCATION;
-      payload?: string;
+      payload: string;
+    }
+  | {
+      type: ActionType.REMOVE_ACTIVE_LOCATION;
+      payload: string;
+    }
+  | {
+      type: ActionType.CLEAR_ACTIVE_LOCATION;
     };
 
-const reducer = (state: IState, action: Action): IState => {
-  switch (action.type) {
-    case ActionType.SET_FILTERS:
-      return {
-        ...state,
-        filters: action.payload,
-      };
-    case ActionType.SET_LOCATIONS:
-      return {
-        ...state,
-        locations: action.payload,
-      };
-    case ActionType.SET_ACTIVE_LOCATION:
-      return {
-        ...state,
-        activeLocation: action.payload,
-      };
-    default:
-      return state;
-  }
+const reducer = (state: IState, action: Action) => {
+  return produce(state, (draft: IState) => {
+    switch (action.type) {
+      case ActionType.SET_FILTERS:
+        draft.filters = action.payload;
+        break;
+      case ActionType.SET_LOCATIONS:
+        draft.locations = action.payload;
+        break;
+      case ActionType.SET_ACTIVE_LOCATION:
+        draft.activeLocations.push(action.payload);
+        break;
+      case ActionType.REMOVE_ACTIVE_LOCATION:
+        draft.activeLocations = draft.activeLocations.filter(
+          (location) => location !== action.payload
+        );
+        break;
+      case ActionType.CLEAR_ACTIVE_LOCATION:
+        draft.activeLocations = [];
+        break;
+      default:
+        return state;
+    }
+  });
 };
-
-const initialState: IState = {
+export const initialState: IState = {
   filters: {},
   locations: [],
-  activeLocation: undefined,
+  activeLocations: [],
 };
 
 const initialContext: {

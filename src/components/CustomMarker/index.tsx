@@ -8,7 +8,8 @@ const Marker: React.FC<{
   anchor: Point;
   index: number;
   active: boolean;
-}> = ({ onClick, anchor, children, active, index, ...props }) => {
+  color?: string;
+}> = ({ onClick, anchor, children, active, index, color, ...props }) => {
   return (
     <div onClick={onClick} data-testid="customMarker">
       <Overlay
@@ -16,7 +17,10 @@ const Marker: React.FC<{
         {...props}
         style={{ zIndex: active ? 500 : index }}
       >
-        <span className={`${styles.container} ${active ? styles.active : ""}`}>
+        <span
+          className={`${styles.container} ${active ? styles.active : ""}`}
+          style={{ backgroundColor: color }}
+        >
           {children}
         </span>
       </Overlay>

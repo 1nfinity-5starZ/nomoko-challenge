@@ -7,6 +7,7 @@ import {
   ActionType,
 } from "../../providers/LocationsProvider";
 import CustomMarker from "../CustomMarker";
+import colors from "src/utils/colors";
 
 const Map: React.FC = () => {
   const { state, dispatch } = useLocationsContext();
@@ -49,22 +50,29 @@ const Map: React.FC = () => {
       <ZoomControl
         style={{ bottom: 20, top: "auto", left: "auto", right: 20 }}
       />
-      {getFilteredLocations().map((location, i) => (
-        <CustomMarker
-          key={i}
-          index={i}
-          anchor={[location.lat, location.lng]}
-          onClick={() =>
-            dispatch({
-              type: ActionType.SET_ACTIVE_LOCATION,
-              payload: location.id,
-            })
-          }
-          active={state.activeLocation === location.id}
-        >
-          {location.pricem2}
-        </CustomMarker>
-      ))}
+      {getFilteredLocations().map((location, i) => {
+        const activeIndex = state.activeLocations.indexOf(location.id);
+        return (
+          <CustomMarker
+            key={i}
+            index={i}
+            anchor={[location.lat, location.lng]}
+            onClick={() =>
+              dispatch({
+                type:
+                  activeIndex < 0
+                    ? ActionType.SET_ACTIVE_LOCATION
+                    : ActionType.REMOVE_ACTIVE_LOCATION,
+                payload: location.id,
+              })
+            }
+            active={activeIndex >= 0}
+            color={colors[activeIndex % colors.length]}
+          >
+            {location.pricem2}
+          </CustomMarker>
+        );
+      })}
     </PigeonMap>
   );
 };

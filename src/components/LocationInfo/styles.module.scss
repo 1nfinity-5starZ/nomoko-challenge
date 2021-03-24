@@ -4,10 +4,11 @@
   display: flex;
   width: 100%;
   max-width: $infoMaxWidth;
-  position: absolute;
+  max-height: 100vh;
   flex-direction: column;
+  position: absolute;
   background-color: white;
-  padding: 1em 1.5em;
+  padding: 1.5em;
   box-shadow: rgb(0 0 0 / 16%) -4px 4px 16px;
   z-index: 1000;
 
@@ -15,24 +16,26 @@
   left: 0;
   bottom: 0;
 
-  div {
-    font-size: 1.2em;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5em;
-
-    @media (min-width: 768px) {
-      margin-bottom: 0.7em;
-    }
-  }
-
   h1 {
     margin: 0 0 0.5em;
-    color: $secondary-color;
+    color: #333;
     @media (min-width: 768px) {
-      margin-bottom: 0.7em;
+      margin-bottom: 1em;
       margin-top: 0.5em;
     }
+  }
+}
+
+.locationInfoContainer {
+  @media (min-width: 768px) {
+    overflow-y: auto;
+    margin: 0 -1.5em -1em;
+    padding: 0 1.5em 1em;
+  }
+
+  @media (max-width: 767px) {
+    display: flex;
+    overflow-x: auto;
   }
 }
 
@@ -55,4 +58,40 @@
   top: 0.5em;
   font-size: 1.8em;
   color: #333;
+}
+
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    min-width: 60vw;
+    border-bottom: 6px solid;
+
+    &:not(:last-child) {
+      margin-right: 2em;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding-left: 0.7em;
+    margin-bottom: 2em;
+    border-left: 6px solid;
+  }
+
+  div {
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0.7em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
