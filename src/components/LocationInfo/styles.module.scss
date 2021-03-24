@@ -1,0 +1,58 @@
+@import "../../variables.scss";
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: $infoMaxWidth;
+  position: absolute;
+  flex-direction: column;
+  background-color: white;
+  padding: 1em 1.5em;
+  box-shadow: rgb(0 0 0 / 16%) -4px 4px 16px;
+  z-index: 1000;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  div {
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0.7em;
+    }
+  }
+
+  h1 {
+    margin: 0 0 0.5em;
+    color: $secondary-color;
+    @media (min-width: 768px) {
+      margin-bottom: 0.7em;
+      margin-top: 0.5em;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: unset;
+    top: unset;
+    left: 0;
+    bottom: 0;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.closeIcon {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  font-size: 1.8em;
+  color: #333;
+}
