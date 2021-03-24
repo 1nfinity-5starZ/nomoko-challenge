@@ -5,6 +5,18 @@ module.exports = {
     title: "Nomoko Challenge",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `NOMOKO Challenge`,
+        short_name: `NOMOKO Challenge`,
+        start_url: `/`,
+        background_color: `#FFF`,
+        theme_color: `rgb(208, 27, 103)`,
+        display: `standalone`,
+        icon: "src/images/icon.png",
+      },
+    },
     "gatsby-plugin-sass",
     {
       resolve: `gatsby-source-filesystem`,

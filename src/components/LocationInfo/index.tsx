@@ -20,8 +20,10 @@ const LocationInfo: React.FC = () => {
     ? locations.find((location) => location.id === activeLocation)
     : null;
 
-  const motionDirection =
-    typeof window !== "undefined" && window.innerWidth >= 768 ? "X(-" : "Y(";
+  let motionDirection = "X(-";
+  if (typeof window !== "undefined" && window.innerWidth < 768) {
+    motionDirection = "Y(";
+  }
 
   return (
     <Motion style={{ x: spring(!!location ? 0 : 1) }}>

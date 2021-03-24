@@ -64,12 +64,7 @@ const Index: React.FC<PageProps<Props>> = ({ data }) => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Nomoko Challenge</title>
-        <link
-          rel="icon"
-          href="/static/android-chrome-192x192.png"
-          type="image/x-icon"
-        />
+        <title>NOMOKO Challenge</title>
       </Helmet>
       <main>
         <Map />

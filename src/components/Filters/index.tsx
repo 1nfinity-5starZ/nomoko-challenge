@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import {
   ActionType,
-  FilterKey,
   useLocationsContext,
 } from "../../providers/LocationsProvider";
 import Button from "../Button";
@@ -20,9 +19,7 @@ const Filters: React.FC = () => {
 
   const { register, handleSubmit } = useForm<Inputs>();
 
-  const [showFilters, setShowFilters] = useState(
-    typeof window !== "undefined" ? window.innerWidth > 767 : false
-  );
+  const [showFilters, setShowFilters] = useState(false);
 
   const onSubmit = (data: any) => {
     dispatch({
@@ -50,9 +47,11 @@ const Filters: React.FC = () => {
 
   return (
     <form
-      className={`${styles.container} ${
-        state.activeLocation ? styles.shrinkContainer : ""
-      } ${showFilters ? styles.open : ""}`}
+      className={`
+        ${styles.container} 
+        ${state.activeLocation ? styles.shrinkContainer : ""} 
+        ${showFilters ? styles.open : ""}
+      `}
       onSubmit={handleSubmit(onSubmit)}
     >
       <div
@@ -106,7 +105,7 @@ const Filters: React.FC = () => {
           !showFilters ? styles.closed : ""
         }`}
       >
-        {showFilters && (
+        {!!showFilters && (
           <>
             <Button type="reset" style={{ flex: 1 }}>
               <FormattedMessage id="clear" defaultMessage="Clear" />
