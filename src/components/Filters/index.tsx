@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import {
   ActionType,
+  IType,
   useLocationsContext,
 } from "../../providers/LocationsProvider";
 import Button from "../Button";
@@ -11,7 +12,10 @@ import { FaFilter, FaChevronUp } from "react-icons/fa";
 import * as styles from "./styles.module.scss";
 
 type Inputs = {
-  type: string;
+  type: IType;
+  minpricem2: string;
+  maxpricem2: string;
+  parking: boolean;
 };
 
 const Filters: React.FC = () => {
@@ -21,7 +25,8 @@ const Filters: React.FC = () => {
 
   const [showFilters, setShowFilters] = useState(false);
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: Inputs) => {
+    console.log(data);
     dispatch({
       type: ActionType.SET_FILTERS,
       payload: {
@@ -86,7 +91,9 @@ const Filters: React.FC = () => {
         </div>
 
         <div className={styles.formElement}>
-          <label htmlFor="minpricem2">Minimaler Preis</label>
+          <label htmlFor="minpricem2">
+            <FormattedMessage id="minPrice" defaultMessage="Minimum Price" />
+          </label>
           <input
             placeholder="0"
             type="number"
@@ -97,7 +104,9 @@ const Filters: React.FC = () => {
         </div>
 
         <div className={styles.formElement}>
-          <label htmlFor="maxpricem2">Maximaler Preis</label>
+          <label htmlFor="maxpricem2">
+            <FormattedMessage id="maxPrice" defaultMessage="Maximaler Price" />
+          </label>
           <input
             placeholder="10000"
             type="number"

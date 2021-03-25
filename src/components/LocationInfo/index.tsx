@@ -72,7 +72,13 @@ const LocationInfo: React.FC = () => {
                   <span>
                     <FormattedMessage id="parking" defaultMessage="Parking" />:
                   </span>
-                  <span>{location.parking === "x" ? "Yes" : "No"}</span>
+                  <span>
+                    {location.parking === "x" ? (
+                      <FormattedMessage id="yes" defaultMessage="Yes" />
+                    ) : (
+                      <FormattedMessage id="no" defaultMessage="Nein" />
+                    )}
+                  </span>
                 </div>
                 <div>
                   <span>

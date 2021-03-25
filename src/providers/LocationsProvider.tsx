@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useReducer } from "react";
 import produce from "immer";
 
-type IType =
+export type IType =
   | "Residential"
   | "Offices"
   | "Commercial"

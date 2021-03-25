@@ -17,16 +17,18 @@ Down the road I added react-icons for icons, react-use-form for parsing the filt
 
 ### Extras
 
-A comparison functionality was added, because of the extra screen real state on desktop. That was later ported to mobile as well, as well as the whole UI.
+A comparison functionality was added, because of the extra screen real state on desktop. That was later ported to mobile, as well as the whole UI.
 
 ### Styling
 
 One library I definitely love is Styled Components, but for this project I decided to give SCSS + CSS Modules a shot, mostly because we talked about that in the first interview. Now that the task is finished and I had time to experiment with SCSS + CSS Modules, I honestly think Styled Components has a better syntax and the code looks cleaner, specially when dealing with prop dependant styling.
 
+If you ever tried to style a Select tag from stratch you know it's a nightmare, and that would be a project on its own. No component library was used, I have experience with both Material UI and AntDesign, but wanted to keep it simple while showing I know how to build typed components from scratch.
+
 ### State Management
 
-I'm very experienced with Redux, but based on the first interview I implemented a no-Redux approach using React Context API and useReducer hook.
-Works very similarly, some people don't like Redux because of its boilerplate but I'm so used to it I don't even bother, I've already gave some trainings inthe past about Redux + Thunk + ImmerJS.
+I'm very comfortable with the Redux ecosystem, but based on the first interview I implemented a no-Redux approach using React Context API and useReducer hook.
+Works very similarly, some people don't like Redux because of its boilerplate but I'm so used to it I don't even bother, I've already gave some trainings for the team in the past about Redux + Thunk + ImmerJS.
 
 ImmerJS is such a handy lib that I also used it here, allows you to simulate a state mutation instead of having to return a whole new state object full of spreads, code is nasty that way.
 
@@ -44,10 +46,9 @@ The deployed version is the last commit on master, Netlify builds and deploys au
 
 This way of loading data (CSV File at build time), is far from ideal, imagine you had a CSV File with thousand of lines, page would crash or consume all memory available. A Rest/GraphQL API would be much better but I thought it was outside of the scope.
 
-Notice no component library was used, I've used Material UI and AntDesign in the past, but wanted to keep it simple while showing I know how to build components from scratch.
-
 In summary, things I would have implemented if I had more time:
 
 - Backend API
 - Storybooks
 - Integration Tests (spent a couple hours trying to do it with Context, I've only worked previously with Redux tests)
+- Implement a better algorightm for the coloring, right now it's just a modulo function.

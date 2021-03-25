@@ -1,8 +1,12 @@
 {
+  "yes": "Ja",
+  "no": "Nein",
   "filter": "Filtern",
   "clear": "Löschen",
   "parking": "Parkplätze",
   "propertyInfo": "Immobilieninfo",
   "pricem2": "Preis / m²",
-  "buildingType": "Art des Gebäudes"
+  "buildingType": "Art des Gebäudes",
+  "minPrice": "Minimaler Preis",
+  "maxPrice": "Maximaler Preis"
 }
