@@ -31,7 +31,7 @@
   }
 }
 
-.open {
+.formOpen {
   @media (max-width: 767px) {
     background-color: white;
     box-shadow: rgb(0 0 0 / 16%) -4px 4px 16px;
@@ -42,11 +42,6 @@
   @media (min-width: 768px) {
     margin-left: $infoMaxWidth;
   }
-}
-
-.closed {
-  background-color: white;
-  box-shadow: rgb(0 0 0 / 16%) -4px 4px 16px;
 }
 
 .formElement {
@@ -75,6 +70,17 @@
   input[type="checkbox"] {
     height: 2em;
     width: 2em;
+  }
+}
+
+.buttonsClosed {
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 16%) -4px 4px 16px;
+}
+
+.buttonsOpen {
+  @media (min-width: 768px) {
+    padding: 1em 2em;
   }
 }
 

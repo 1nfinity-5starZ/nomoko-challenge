@@ -36,6 +36,8 @@ ImmerJS is such a handy lib that I also used it here, allows you to simulate a s
 
 The React-Intl library allows the whole application to be localized. For this test, only german was used, but several languages are supported as long as you provide the messages dictionary for each of them.
 
+There might be some translation mistakes, I used google translate for them.
+
 ## Running the project
 
 Clone, run `npm install` and then `gatsby develop`, that will start a local development server on localhost:8000.

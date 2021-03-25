@@ -55,6 +55,7 @@ const LocationInfo: React.FC = () => {
           <div className={styles.locationInfoContainer}>
             {compareLocations.map((location, i) => (
               <div
+                key={i}
                 className={styles.locationInfo}
                 style={{ borderColor: colors[i % colors.length] }}
               >

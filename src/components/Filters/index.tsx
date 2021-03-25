@@ -26,7 +26,6 @@ const Filters: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   const onSubmit = (data: Inputs) => {
-    console.log(data);
     dispatch({
       type: ActionType.SET_FILTERS,
       payload: {
@@ -55,7 +54,7 @@ const Filters: React.FC = () => {
       className={`
         ${styles.container} 
         ${state.activeLocations.length > 0 ? styles.shrinkContainer : ""} 
-        ${showFilters ? styles.open : ""}
+        ${showFilters ? styles.formOpen : ""}
       `}
       onSubmit={handleSubmit(onSubmit)}
       data-testid="form"
@@ -92,7 +91,10 @@ const Filters: React.FC = () => {
 
         <div className={styles.formElement}>
           <label htmlFor="minpricem2">
-            <FormattedMessage id="minPrice" defaultMessage="Minimum Price" />
+            <FormattedMessage
+              id="minPrice"
+              defaultMessage="Minimum Price / m²"
+            />
           </label>
           <input
             placeholder="0"
@@ -105,7 +107,10 @@ const Filters: React.FC = () => {
 
         <div className={styles.formElement}>
           <label htmlFor="maxpricem2">
-            <FormattedMessage id="maxPrice" defaultMessage="Maximaler Price" />
+            <FormattedMessage
+              id="maxPrice"
+              defaultMessage="Maximaler Price / m²"
+            />
           </label>
           <input
             placeholder="10000"
@@ -119,7 +124,7 @@ const Filters: React.FC = () => {
 
       <div
         className={`${styles.formElement} ${styles.row} ${
-          !showFilters ? styles.closed : ""
+          !showFilters ? styles.buttonsClosed : styles.buttonsOpen
         }`}
       >
         {!!showFilters && (
